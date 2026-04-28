@@ -99,7 +99,7 @@
 															<xs:simpleContent>
 																<xs:extension base="decimal">
 																	<xs:attribute name="lado1" type="xs:positiveInteger">
-																	<xs:attribute name="lado2" type="xs:positiveInteger>
+																	<xs:attribute name="lado2" type="xs:positiveInteger">
 																</xs:extension>
 															</xs:simpleContent>
 														</xs:element>
