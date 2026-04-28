@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+<xs:element name="torneo">
+	<xs:complexType>
+		<xs:sequence>
+			<xs:element name="nombre" type="xs:string"/>
+			<xs:element name="fechaIni" type="xs:date"/>
+			<xs:element name="fechaFin" type="xs:date"/>
+			
+			<xs:element name="puntosATP">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="ronda" minOccurs="3" maxOccurs="6">
+							<xs:complexType>
+								<xs:choice>
+									<xs:element name="2da ronda" type="xs:string"/>
+									<xs:element name="3ra ronda" type="xs:string"/>
+									<xs:element name="cuartos" type="xs:string"/>
+									<xs:element name="semis" type="xs:string"/>
+									<xs:element name="finalista" type="xs:string"/>
+									<xs:element name="ganador" type="xs:string"/>
+								</xs:choice>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>					
+					<xs:attribute name="puntos" type="xs:positiveInteger"/>
+				</xs:complexType>
+			</xs:element>
+			
+			<xs:element name="cuadro">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="cruce" minOccurs="1" maxOccurs="unbounded">
+							<xs:complexType>
+								<xs:element name="jugador" minOccurs="2" maxOccurs="2">
+									<xs:complexType>
+										<xs:simpleContent>
+											<xs:attribute name="nombre" type="xs:string" use="required"/>
+											<xs:attribute name="rankingTorneo" type="xs:string" use="required"/>
+										</xs:simpleContent>
+									</xs:complexType>
+								<xs:element>
+							</xs:complexType>
+						<xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			
+			<xs:element name="partidos">
+				<xs:complexType>
+					<xs:element name="partido">
+						<xs:complexType>
+							<xs:sequence>
+								
+								<xs:element name="tipo">
+									<xs:simpleType>
+										<xs:restriction base="xs:string">
+											<xs:enumeration value="individual masculino"/>
+											<xs:enumeration value="individual femenino"/>
+											<xs:enumeration value="dobles masculino"/>
+											<xs:enumeration value="dobles femenino"/>
+											<xs:enumeration value="dobles mixtos"/>
+										</xs:restriction>
+									</xs:simpleType>
+								</xs:element>
+								
+								<xs:element name="jugadores">
+									<xs:complexType>
+										<xs:sequence>
+											<xs:element name="lado1">
+												<xs:complexType>
+													<xs:sequence>
+														<xs:element name="jugador">
+															<xs:complexType>
+																<xs:simpleContent>
+																	<xs:extension base="xs:string">
+																		<xs:attribute name="nombre" use="required"/>
+																		<xs:attribute name="rankingTorneo" use="required"/>
+																	</xs:extension>
+																</xs:simpleContent>
+															</xs:complexType>
+														</xs:element>
+													</xs:sequence>
+												</xs:complexType>
+											</xs:element>
+										</xs:sequence>
+									</xs:complexType>
+								</xs:element>
+								
+								<xs:element name="resultado">
+									<xs:complexType>
+										<xs:sequence>
+											<xs:element name="set" minOccurs="1" maxOccurs="unbounded">
+												<xs:complexType>
+													<xs:sequence>
+													
+														<xs:element name="juegos">
+															<xs:simpleContent>
+																<xs:extension base="decimal">
+																	<xs:attribute name="lado1" type="xs:positiveInteger">
+																	<xs:attribute name="lado2" type="xs:positiveInteger>
+																</xs:extension>
+															</xs:simpleContent>
+														</xs:element>
+														
+														<xs:element name="puntosJuego">
+															<xs:complexType>
+																<xs:attribute name="lado1"/>
+																<xs:attribute name="lado2/>
+																
+																<xs:simpleType>
+																	<xs:restriction base="xs:string>
+																		<xs:enumeration value="0"/>
+																		<xs:enumeration value="15"/>
+																		<xs:enumeration value="30"/>
+																		<xs:enumeration value="40"/>
+																		<xs:enumeration value="AD"/>
+																	</xs:restriction>
+																</xs:simpleType>
+																
+															</xs:complexType>
+														</xs:element>
+														
+													</xs:sequence>
+													
+													<xs:attribute name="numero" type="xs:positiveInteger" minOccurs="1" use="required">
+													
+												</xs:complexType>
+											</xs:element>
+										</xs:sequence>
+									</xs:complexType>
+								</xs:element>
+								
+							<xs:sequence>
+							<xs:attribute name="estado" minOccurs="0">
+								<xs:simpleType>
+									<xs:restriction base="xs:string">
+										<xs:enumeration value="en juego"/>
+										<xs:enumeration value="finalizado"/>
+									</xs:restriction>
+								</xs:simpleType>
+							</xs:attribute>
+							</xs:restriction>
+						</xs:complexType>
+					</xs:element>
+				</xs:complexType>
+			</xs:element>
+			
+		</xs:sequence>
+	</xs:complexType>
+</xs:element>

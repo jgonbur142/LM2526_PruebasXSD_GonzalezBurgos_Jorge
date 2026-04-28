@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<torneosATP xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="torneosATP.xsd">
+	<torneo>
+		<nombre>Torneo Regional</nombre>
+		<fechaIni>2026-04-28</fechaIni>
+		<fechaFin>2026-04-30</fechaFin>
+		<puntosATP>
+			<ronda puntos=3>
+				<ganador>Jugador1</ganador>
+			</ronda>
+			<ronda puntos=2>
+				<cuartos>Jugador2</cuartos>
+			</ronda>
+			<ronda puntos=5>
+				<semis>Jugador2</cuartos>
+			</ronda>
+		</puntosATP>
+		<cuadro>
+			<jugador>
+				<nombre>Jugador1</nombre>
+				<rankingTorneo>2</rankingTorneo>
+			</jugador>
+			<jugador>
+				<nombre>jugador2</nombre>
+				<rankingTorneo>3</rankingTorneo>
+			</jugador>
+		</cuadro>
+		<partidos>
+			<partido>
+				<tipo>individual masculino</tipo>
+				<jugadores>
+					<lado1>
+						<jugador nombre="Jugador1" rankingTorneo=2>
+					</lado1>
+					<lado2>
+						<jugador nombre="Jugador2" rankingTorneo=2>
+					</lado2>
+				</jugadores>
+				<resultado>
+					<set numero=2>
+						<juegos lado1=6 lado2=0>
+							<puntosJuegos>15</puntosJuegos>
+						</juegos>
+					</set>
+				<resultado>
+			</partido>
+		</partidos>
+	</torneo>
+</torneosATP>
