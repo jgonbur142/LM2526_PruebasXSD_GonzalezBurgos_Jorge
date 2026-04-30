@@ -1,0 +1,37 @@
+<!ELEMENT torneosATP (torneo+)>
+
+    <!ELEMENT torneo (nombre, fechaIni, fechaFin, puntosATP, cuadro, partidos)>
+
+        <!ELEMENT nombre (#PCDATA)>
+        <!ELEMENT fechaIni (#PCDATA)>
+        <!ELEMENT fechaFin (#PCDATA)>
+
+        <!ELEMENT puntosATP (ronda, ronda, ronda, ronda?, ronda?, ronda?)>
+            <!ELEMENT ronda (#PCDATA)>
+            <!ATTLIST ronda puntos CDATA #REQUIRED>
+
+        <!ELEMENT cuadro (cruce+)>
+            <!ELEMENT cruce (jugador, jugador)>
+            <!ATTLIST cruce numero CDATA #IMPLIED>
+
+        <!ELEMENT partidos (partido+)>
+            <!ELEMENT partido (tipo, jugadores, resultado)>
+            <!ATTLIST partido estado (en_juego | finalizado) #IMPLIED>
+
+                <!ELEMENT tipo (#PCDATA)>
+
+                <!ELEMENT jugadores (lado1, lado2)>
+                    <!ELEMENT lado1 (jugador, jugador?)>
+                    <!ELEMENT lado2 (jugador, jugador?)>
+                        <!ELEMENT jugador EMPTY>
+                            <!ATTLIST jugador nombre CDATA #REQUIRED rankingTorneo CDATA #REQUIRED>
+
+                <!ELEMENT resultado (set+)>
+                    <!ELEMENT set (juegos, puntosJuego?)>
+                    <!ATTLIST set numero CDATA #REQUIRED>
+
+                        <!ELEMENT juegos EMPTY>
+                            <!ATTLIST juegos lado1 CDATA #REQUIRED lado2 CDATA #REQUIRED>
+
+                        <!ELEMENT puntosJuego EMPTY>
+                            <!ATTLIST puntosJuego lado1 (0 | 15 | 30 | 40 | AD) #REQUIRED lado2 (0 | 15 | 30 | 40 | AD) #REQUIRED>
